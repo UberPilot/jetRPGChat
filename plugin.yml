@@ -1,0 +1,30 @@
+name: jetRPGChat
+description: A plugin that hooks into other jetSuite plugins and allows pulling from chat.
+version: 1.0.0
+author: UberPilot
+main: org.projpi.jetSuite.rpg.chat.JetRPGChat
+website: http://projpi.org/jetSuite
+softdepend: [PlaceholderAPI, jetRPG, jetPlayersLib]
+commands:
+  ooc:
+    description: Toggle default chat mode.
+    usage: /ooc
+  message:
+    description: Send the targeted player a private message.
+    usage: /message [player] [message]
+    aliases: [msg, m, cmode]
+  reply:
+    description: Reply to the last messaged person
+    usage: /reply [message]
+    aliases: [r]
+  jetrpgchat:
+    description: Base command
+    usage: /jetrpgchat
+    aliases: [jrpgc, jrc, jrchat]
+  mute:
+    description: Mute the targeted player in all channels.
+    usage: /mute [player]
+  socialspy:
+    description: Enable spying on private messages and bypassing range.
+    usage: /socialspy <on | off>
+    aliases: [ss]

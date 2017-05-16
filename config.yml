@@ -1,0 +1,89 @@
+#Configuration Version. Don't touch this unless you know what you're doing.
+config-version: 1
+
+#Chat Types
+#Settings for each chat type. Prefix what needs to be at the beginning for each message.
+#Range is how far the message travels.
+#On the default configurations, to send a shout, you'd type '!message'.
+# Custom Placeholders:
+# /sender/ - Standard Username of the Sender
+# /dsender/ - Display Name of the Sender
+# /rpgSender/ - jetRPG-hooked Sender Character Name
+# Also supports PlaceholderAPI Placeholders, if installed and enabled.
+type-settings:
+  chat:
+    prefix: ""
+    range: 25
+    use: true
+#Format message. Supports colors with & and PlaceholderAPI, if installed.
+    format: "/sender/&7 says &f/message/"
+  emote:
+    prefix: "*"
+    range: 25
+    use: true
+    format: "&7/sender/ &e/message/"
+  shout:
+    prefix: "!"
+    range: 50
+    far-range: 70
+    use: true
+    format:  "/sender/&c yells &f/message/"
+  ooc:
+    prefix: "^"
+    range: 0
+    use: true
+    format: "&f</sender/&f> /message/"
+
+#Settings on what chat features should be enabled.
+features:
+  color:
+#Parse colors in chat?
+    parse: true
+    #Should players require the jetRPG.chat.color permission to use colors and formats? parse must be true.
+    use-permission: true
+    #Should players attempting to use this feature be send a message if they aren't allowed to?
+    denied-message: false
+
+#Other Formats
+
+formats:
+  pm-format-to: "&6[&cme &6-> &f/target/&6] &f/message/"
+  pm-format-from: "&6[&f/sender/ &6-> &cme&6] &f/message/"
+  pm-format-spy: "&6[&f/sender/ &6-> &f/target/&6] &f/message/"
+
+#Mouse-over on Player Names
+#Supports Placeholders
+json:
+  sender-json:
+  - "&7Username: %player_name%"
+  - "&fClick to message this user."
+#Options: "run_command" "open_url" "suggest_command"
+  sender-click-event: "suggest_command"
+#The command or URL to be opened or suggested.
+  click-parameter: "/msg /sender/"
+
+#Language settings
+language:
+  plugin-prefix: "&8[&2Chat&8] &7&o"
+  ooc-on: "Default chat is now Out Of Character"
+  ooc-off: "Default chat is now Roleplay Chat"
+
+#Error Outputs
+#/denied/ is either replaced with command or the name of the feature, depending on what's been rejected.
+  permission:
+    message: "&cSorry, you do not have permission to use /denied/."
+    command: "that command"
+    color: "colored chat"
+  socialspy:
+    message: "Socialspy has been toggled /mode/"
+    on: "on"
+    off: "off"
+  invalid-command: "&cInvalid usage! The correct usage is /usage/"
+  player-not-found: "&cThat player was not found."
+  muted-response: "&7Your message wasn't heard, as you are muted."
+
+messages:
+#Join Messages
+  first-join: "&6Welcome &7/player/ &6to the server!"
+  join: "&e/player/ joined the game"
+  leave: "&e/player/ left the game"
